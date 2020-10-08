@@ -12,27 +12,29 @@
             <ion-list>
               <ion-item>
                 <ion-label position="floating">Número patrimônio</ion-label>
-                <IonInputVue />
+                <IonInputVue type="tel" />
               </ion-item>
 
               <ion-item>
                 <ion-label position="floating">Ip equipamento</ion-label>
-                <IonInputVue />
+                <IonInputVue type="tel" />
               </ion-item>
 
               <ion-item>
                 <ion-label position="floating">Tipo de equipamento</ion-label>
                 <IonSelectVue>
-                  <ion-select-option value="cats">Cats</ion-select-option>
-                  <ion-select-option value="dogs">Dogs</ion-select-option>
+                  <ion-select-option value="PC">Computador</ion-select-option>
+                  <ion-select-option value="NB">Notebook</ion-select-option>
                 </IonSelectVue>
               </ion-item>
 
               <ion-item>
-                <ion-label position="floating">Wih</ion-label>
+                <ion-label position="floating">Wih ou Vivo</ion-label>
                 <IonSelectVue>
-                  <ion-select-option value="cats">Cats</ion-select-option>
-                  <ion-select-option value="dogs">Dogs</ion-select-option>
+                  <ion-select-option value="Wih">Wih</ion-select-option>
+                  <ion-select-option value="Vivo">Vivo</ion-select-option>
+                  <ion-select-option value="EP">Próprio</ion-select-option>
+                  <ion-select-option value="NS">Não sei</ion-select-option>
                 </IonSelectVue>
               </ion-item>
 
@@ -73,8 +75,21 @@
               <ion-item>
                 <ion-label position="floating">Tipo de processador</ion-label>
                 <IonSelectVue>
-                  <ion-select-option value="cats">Cats</ion-select-option>
-                  <ion-select-option value="dogs">Dogs</ion-select-option>
+                  <ion-select-option value="i7"
+                    >Intel core i7</ion-select-option
+                  >
+                  <ion-select-option value="i5"
+                    >Intel core i5</ion-select-option
+                  >
+                  <ion-select-option value="i3"
+                    >Intel core i3</ion-select-option
+                  >
+                  <ion-select-option value="2quad"
+                    >Intel core 2 quad</ion-select-option
+                  >
+                  <ion-select-option value="Pentium"
+                    >Intel Pentium</ion-select-option
+                  >
                 </IonSelectVue>
               </ion-item>
 
@@ -86,8 +101,8 @@
               <ion-item>
                 <ion-label position="floating">HDD ou SSD</ion-label>
                 <IonSelectVue>
-                  <ion-select-option value="cats">Cats</ion-select-option>
-                  <ion-select-option value="dogs">Dogs</ion-select-option>
+                  <ion-select-option value="HDD">HDD</ion-select-option>
+                  <ion-select-option value="SSD">SSD</ion-select-option>
                 </IonSelectVue>
               </ion-item>
 
@@ -111,7 +126,7 @@
         <ion-card-content>
           <ion-grid>
             <ion-row>
-              <div>
+              <!--<div>
                 <ion-col>
                   <ion-button id="btn_prog" shape="round" class="btn"
                     >Tasy</ion-button
@@ -147,7 +162,7 @@
                     >PTA</ion-button
                   >
                 </ion-col>
-              </div>
+              </div>-->
             </ion-row>
           </ion-grid>
         </ion-card-content>
@@ -165,7 +180,9 @@
       <ion-card style="background-color: white">
         <ion-card-content>
           <ion-label position="floating">Relato técnico</ion-label>
-          <IonTextareaVue></IonTextareaVue>
+          <IonTextareaVue
+            placeholder="Ex.: O computador necessita de formatação e limpeza"
+          ></IonTextareaVue>
 
           <ion-button
             id="btn_cadastrar"
@@ -184,7 +201,6 @@
 #header {
   --background: #00995d;
   color: white;
-  
 }
 
 #btn_cadastrar {

@@ -5,8 +5,8 @@
         <ion-tab tab="CadastroPc" :routes="['CadastroPc']">
           <CadastroPc />
         </ion-tab>
-        <ion-tab tab="CadastroSetor" :routes="['CadastroSetor']">
-          <CadastroSetor />
+        <ion-tab tab="CadastroGeral" :routes="['CadastroGeral']">
+          <CadastroGeral />
         </ion-tab>
 
         <ion-tab-bar slot="bottom">
@@ -20,9 +20,9 @@
           </ion-tab-button>
 
           <ion-tab-button
-            tab="CadastroSetor"
+            tab="CadastroGeral"
             class="btn-tab"
-            :to="{ name: 'CadastroSetor' }"
+            :to="{ name: 'CadastroGeral' }"
           >
             <ion-icon name="grid"></ion-icon>
             <ion-label>Geral</ion-label>
@@ -35,7 +35,7 @@
 
 <script>
 import CadastroPc from "./tabs/CadastroPc";
-import CadastroSetor from "./tabs/CadastroSetor";
+import CadastroGeral from "./tabs/CadastroGeral";
 import { addIcons } from "ionicons";
 import { addCircle, settings, grid } from "ionicons/icons";
 
@@ -48,13 +48,15 @@ addIcons({
 export default {
   components: {
     CadastroPc,
-    CadastroSetor,
+    CadastroGeral,
   },
 };
 </script>
 
 <style>
 #form ion-label {
+ font-size: 17.5px;
+ font-weight: bold;
   font-family: "Montserrat", sans-serif;
 }
 

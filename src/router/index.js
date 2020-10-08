@@ -5,6 +5,11 @@ Vue.use(IonicVueRouter);
 
 const routes = [
   {
+    path: "/Menu",
+    name: "Menu",
+    component: () => import("@/views/menu/Menu.vue"),
+  },
+  {
     path: "/HomeCadastro",
     name: "HomeCadastro",
     component: () => import("@/views/cadastro/HomeCadastro.vue"),
@@ -18,16 +23,16 @@ const routes = [
       },
       {
         path: "CadastroSetor",
-        name: "CadastroSetor",
+        name: "CadastroGeral",
         components: {
-          tabCadastroSetor: () => import("@/views/cadastro/tabs/CadastroSetor"),
+          tabCadastroGeral: () => import("@/views/cadastro/tabs/CadastroGeral"),
         },
       },
     ],
   },
   {
     path: "/",
-    redirect: "HomeCadastro/CadastroPc",
+    redirect: "Menu",
   },
 ];
 
