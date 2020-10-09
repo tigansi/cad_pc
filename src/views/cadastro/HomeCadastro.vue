@@ -1,5 +1,15 @@
 <template>
   <ion-app>
+    <ion-header>
+      <ion-toolbar id="header">
+        <ion-buttons slot="start">
+          <ion-button  @click="menu">
+            <ion-icon slot="icon-only" name="arrow-back-circle-sharp"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title>Unimed Pelotas</ion-title>
+      </ion-toolbar>
+    </ion-header>
     <ion-content>
       <ion-tabs>
         <ion-tab tab="CadastroPc" :routes="['CadastroPc']">
@@ -7,6 +17,9 @@
         </ion-tab>
         <ion-tab tab="CadastroGeral" :routes="['CadastroGeral']">
           <CadastroGeral />
+        </ion-tab>
+        <ion-tab tab="ListagemPc" :routes="['ListagemPc']">
+          <ListagemPc />
         </ion-tab>
 
         <ion-tab-bar slot="bottom">
@@ -16,7 +29,7 @@
             :to="{ name: 'CadastroPc' }"
           >
             <ion-icon name="add-circle"></ion-icon>
-            <ion-label>Computador</ion-label>
+            <ion-label>Máquinas</ion-label>
           </ion-tab-button>
 
           <ion-tab-button
@@ -25,7 +38,16 @@
             :to="{ name: 'CadastroGeral' }"
           >
             <ion-icon name="grid"></ion-icon>
-            <ion-label>Geral</ion-label>
+            <ion-label>Outros</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button
+            tab="ListagemPc"
+            class="btn-tab"
+            :to="{ name: 'ListagemPc' }"
+          >
+            <ion-icon name="newspaper"></ion-icon>
+            <ion-label>Listagem</ion-label>
           </ion-tab-button>
         </ion-tab-bar>
       </ion-tabs>
@@ -36,32 +58,49 @@
 <script>
 import CadastroPc from "./tabs/CadastroPc";
 import CadastroGeral from "./tabs/CadastroGeral";
+import ListagemPc from "./tabs/ListagemPc";
 import { addIcons } from "ionicons";
-import { addCircle, settings, grid } from "ionicons/icons";
+import { addCircle, settings, grid, newspaper, arrowBackCircleSharp } from "ionicons/icons";
 
 addIcons({
   "md-add-circle": addCircle,
   "md-settings": settings,
   "md-grid": grid,
+  "md-newspaper": newspaper,
+  "md-arrow-back-circle-sharp":arrowBackCircleSharp
 });
 
 export default {
   components: {
     CadastroPc,
     CadastroGeral,
+    ListagemPc,
+  },
+  data() {
+    return {};
+  },
+  methods: {
+    menu() {
+      this.$router.push("/Menu");
+    },
   },
 };
 </script>
 
 <style>
 #form ion-label {
- font-size: 17.5px;
- font-weight: bold;
+  font-size: 17.5px;
+  font-weight: bold;
   font-family: "Montserrat", sans-serif;
 }
 
 #form input {
   font-family: "Montserrat", sans-serif;
+}
+
+#header {
+  --background: #00995d;
+  color: white;
 }
 
 ion-tab-bar {
