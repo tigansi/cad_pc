@@ -21,13 +21,7 @@ const routes = [
           tabCadastroPc: () => import("@/views/cadastro/tabs/CadastroPc"),
         },
       },
-      {
-        path: "CadastroGeral",
-        name: "CadastroGeral",
-        components: {
-          tabCadastroGeral: () => import("@/views/cadastro/tabs/CadastroGeral"),
-        },
-      },
+    
       {
         path: "ListagemPc",
         name: "ListagemPc",

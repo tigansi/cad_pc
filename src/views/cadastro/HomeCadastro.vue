@@ -3,8 +3,11 @@
     <ion-header>
       <ion-toolbar id="header">
         <ion-buttons slot="start">
-          <ion-button  @click="menu">
-            <ion-icon slot="icon-only" name="arrow-back-circle-sharp"></ion-icon>
+          <ion-button @click="menu">
+            <ion-icon
+              slot="icon-only"
+              name="arrow-back-circle-sharp"
+            ></ion-icon>
           </ion-button>
         </ion-buttons>
         <ion-title>Unimed Pelotas</ion-title>
@@ -15,9 +18,7 @@
         <ion-tab tab="CadastroPc" :routes="['CadastroPc']">
           <CadastroPc />
         </ion-tab>
-        <ion-tab tab="CadastroGeral" :routes="['CadastroGeral']">
-          <CadastroGeral />
-        </ion-tab>
+
         <ion-tab tab="ListagemPc" :routes="['ListagemPc']">
           <ListagemPc />
         </ion-tab>
@@ -30,15 +31,6 @@
           >
             <ion-icon name="add-circle"></ion-icon>
             <ion-label>Máquinas</ion-label>
-          </ion-tab-button>
-
-          <ion-tab-button
-            tab="CadastroGeral"
-            class="btn-tab"
-            :to="{ name: 'CadastroGeral' }"
-          >
-            <ion-icon name="grid"></ion-icon>
-            <ion-label>Outros</ion-label>
           </ion-tab-button>
 
           <ion-tab-button
@@ -57,23 +49,28 @@
 
 <script>
 import CadastroPc from "./tabs/CadastroPc";
-import CadastroGeral from "./tabs/CadastroGeral";
 import ListagemPc from "./tabs/ListagemPc";
 import { addIcons } from "ionicons";
-import { addCircle, settings, grid, newspaper, arrowBackCircleSharp } from "ionicons/icons";
+import {
+  addCircle,
+  settings,
+  grid,
+  newspaper,
+  arrowBackCircleSharp,
+} from "ionicons/icons";
 
 addIcons({
   "md-add-circle": addCircle,
   "md-settings": settings,
   "md-grid": grid,
   "md-newspaper": newspaper,
-  "md-arrow-back-circle-sharp":arrowBackCircleSharp
+  "md-arrow-back-circle-sharp": arrowBackCircleSharp,
 });
 
 export default {
   components: {
     CadastroPc,
-    CadastroGeral,
+
     ListagemPc,
   },
   data() {
