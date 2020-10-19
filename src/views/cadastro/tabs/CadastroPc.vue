@@ -166,6 +166,7 @@
               <ion-item>
                 <ion-label position="floating">Programas especiais</ion-label>
                 <IonTextareaVue
+                  style="font-family: 'Montserrat', sans-serif"
                   placeholder="Ex.: O computador Possui licença dos programas de edição da Adobe"
                 ></IonTextareaVue>
               </ion-item>
@@ -227,6 +228,7 @@
               <ion-item>
                 <ion-label position="floating">Relato técnico</ion-label>
                 <IonTextareaVue
+                  style="font-family: 'Montserrat', sans-serif"
                   placeholder="Ex.: O computador necessita de formatação e limpeza"
                 ></IonTextareaVue>
               </ion-item>
@@ -237,6 +239,7 @@
                 class="btn"
                 expand="block"
                 shape="round"
+                @click="cadastraDados"
                 >Cadastrar informações</ion-button
               >
             </ion-list>
@@ -248,6 +251,8 @@
 </template>
 
 <script>
+import Provider from "../../../services/provider";
+import { loadingController } from "@ionic/core";
 export default {
   data() {
     return {
@@ -273,12 +278,62 @@ export default {
     };
   },
   methods: {
-    cadastraDados() {
+    async cadastraDados() {
       try {
-        console.log("teste1");
+        const loading = await loadingController.create({
+          cssClass: "my-custom-class",
+          message: "Um momento...",
+        });
+        loading.present();
+
+        let dados = {
+          tipo: "cad_pc",
+          nr_patrimonio: this.form.nr_patrimonio,
+          ip_equipamento: this.form.ip_equipamento,
+          tp_equipamento: this.form.tp_equipamento,
+          is_alugado: this.form.is_alugado,
+          nm_dominio: this.form.nm_dominio,
+          ad_user: this.form.ad_user,
+          nm_user: this.form.nm_user,
+          setor: this.form.setor,
+          so: this.form.so,
+          office: this.form.office,
+          prog_especial: this.form.prog_especial,
+          tp_processador: this.form.tp_processador,
+          mem_ram: this.form.mem_ram,
+          is_hdd_ssd: this.form.is_hdd_ssd,
+          qtd_armazenamento: this.form.qtd_armazenamento,
+          env_preventiva: this.form.env_preventiva,
+          rel_tecnico: this.form.rel_tecnico,
+        };
+
+        Provider.provider("computador", JSON.stringify(dados))
+          .then((res) => {
+            if (res.data.sucesso) {
+              loading.dismiss();
+            } else {
+              loading.dismiss();
+            }
+          })
+          .catch((error) => {
+            loading.dismiss();
+            this.presentToast(
+              "Ocorreu um erro com o servidor. Contate o suporte"
+            );
+            console.log("TIMEOUT " + error);
+          });
       } catch (error) {
         console.log(error);
       }
+    },
+    async presentToast(msg) {
+      const toast = document.createElement("ion-toast");
+      toast.message = msg;
+      toast.duration = 2000;
+      toast.position = "top";
+
+      document.body.appendChild(toast);
+      return toast.present();
     },
   },
 };
@@ -292,6 +347,14 @@ export default {
 
 #btn_prog {
   --background: rgb(177, 211, 75);
+  font-weight: bold;
+}
+
+ion-toast {
+  /*color: white;*/
+  text-align: center;
+  --background: rgb(177, 211, 75);
+  color: white;
   font-weight: bold;
 }
 </style>
