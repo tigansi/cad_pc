@@ -23,8 +23,6 @@ def computador():
             computador = Computador()
             return json.dumps(computador.cadastra_computador(data))
 
-    return ""
-
 
 if __name__ == '__main__':
     app.run(

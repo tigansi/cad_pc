@@ -7,17 +7,17 @@
             <ion-list>
               <ion-item>
                 <ion-label position="floating">Número patrimônio</ion-label>
-                <IonInputVue type="tel" />
+                <IonInputVue v-model="form.nr_patrimonio" type="tel" />
               </ion-item>
 
               <ion-item>
                 <ion-label position="floating">Ip equipamento</ion-label>
-                <IonInputVue type="tel" />
+                <IonInputVue v-model="form.ip_equipamento" type="tel" />
               </ion-item>
 
               <ion-item>
                 <ion-label position="floating">Tipo de equipamento</ion-label>
-                <IonSelectVue>
+                <IonSelectVue v-model="form.tp_equipamento">
                   <ion-select-option value="PC">Computador</ion-select-option>
                   <ion-select-option value="NB">Notebook</ion-select-option>
                 </IonSelectVue>
@@ -25,7 +25,7 @@
 
               <ion-item>
                 <ion-label position="floating">Wih ou Vivo</ion-label>
-                <IonSelectVue>
+                <IonSelectVue v-model="form.is_alugado">
                   <ion-select-option value="Wih">Wih</ion-select-option>
                   <ion-select-option value="Vivo">Vivo</ion-select-option>
                   <ion-select-option value="EP">Próprio</ion-select-option>
@@ -35,22 +35,22 @@
 
               <ion-item>
                 <ion-label position="floating">Nome do domínio</ion-label>
-                <IonInputVue />
+                <IonInputVue v-model="form.nm_dominio" />
               </ion-item>
 
               <ion-item>
                 <ion-label position="floating">Usuário(a) AD</ion-label>
-                <IonInputVue />
+                <IonInputVue v-model="form.ad_user" />
               </ion-item>
 
               <ion-item>
                 <ion-label position="floating">Nome do usuário(a)</ion-label>
-                <IonInputVue />
+                <IonInputVue v-model="form.nm_user" />
               </ion-item>
 
               <ion-item>
                 <ion-label position="floating">Setor</ion-label>
-                <IonSelectVue>
+                <IonSelectVue v-model="form.setor">
                   <ion-select-option value="Auditoria"
                     >Auditoria</ion-select-option
                   >
@@ -109,7 +109,7 @@
 
               <ion-item>
                 <ion-label position="floating">Sistema operacional</ion-label>
-                <IonSelectVue>
+                <IonSelectVue v-model="form.so">
                   <ion-select-option value="Windows 10 Pro"
                     >Windows 10 Pro</ion-select-option
                   >
@@ -129,7 +129,7 @@
 
               <ion-item>
                 <ion-label position="floating">Pacote office</ion-label>
-                <IonSelectVue>
+                <IonSelectVue v-model="form.office">
                   <ion-select-option value="Office 2003 Pro"
                     >Office 2003 Pro</ion-select-option
                   >
@@ -166,6 +166,7 @@
               <ion-item>
                 <ion-label position="floating">Programas especiais</ion-label>
                 <IonTextareaVue
+                  v-model="form.prog_especial"
                   style="font-family: 'Montserrat', sans-serif"
                   placeholder="Ex.: O computador Possui licença dos programas de edição da Adobe"
                 ></IonTextareaVue>
@@ -173,7 +174,7 @@
 
               <ion-item>
                 <ion-label position="floating">Tipo de processador</ion-label>
-                <IonSelectVue>
+                <IonSelectVue v-model="form.tp_processador">
                   <ion-select-option value="i7"
                     >Intel core i7</ion-select-option
                   >
@@ -197,12 +198,12 @@
 
               <ion-item>
                 <ion-label position="floating">Memória Ram</ion-label>
-                <IonInputVue />
+                <IonInputVue v-model="form.mem_ram" />
               </ion-item>
 
               <ion-item>
                 <ion-label position="floating">HDD ou SSD</ion-label>
-                <IonSelectVue>
+                <IonSelectVue v-model="form.is_hdd_ssd">
                   <ion-select-option value="HDD">HDD</ion-select-option>
                   <ion-select-option value="SSD">SSD</ion-select-option>
                 </IonSelectVue>
@@ -212,14 +213,14 @@
                 <ion-label position="floating"
                   >Quantidade de armazenamento</ion-label
                 >
-                <IonInputVue />
+                <IonInputVue v-model="form.qtd_armazenamento" />
               </ion-item>
 
               <ion-item>
                 <ion-label position="floating"
                   >Encaminhar para preventiva</ion-label
                 >
-                <IonSelectVue>
+                <IonSelectVue v-model="form.env_preventiva">
                   <ion-select-option value="s">Sim</ion-select-option>
                   <ion-select-option value="n">Não</ion-select-option>
                 </IonSelectVue>
@@ -228,6 +229,7 @@
               <ion-item>
                 <ion-label position="floating">Relato técnico</ion-label>
                 <IonTextareaVue
+                  v-model="form.rel_tecnico"
                   style="font-family: 'Montserrat', sans-serif"
                   placeholder="Ex.: O computador necessita de formatação e limpeza"
                 ></IonTextareaVue>
@@ -311,6 +313,8 @@ export default {
           .then((res) => {
             if (res.data.sucesso) {
               loading.dismiss();
+              this.form = null;
+              this.presentToast(res.data.msg);
             } else {
               loading.dismiss();
             }
