@@ -15,13 +15,19 @@
           <center>
             <ion-grid>
               <ion-row>
-                <ion-col size-sm>
+                <ion-col size="6" size-sm>
                   <div
                     class="box"
                     @click="direcionaView('/HomeCadastro/CadastroPC')"
                   >
                     <ion-icon name="add-circle"></ion-icon><br />
                     Avaliação das máquinas
+                  </div>
+                </ion-col>
+                <ion-col size="6" size-sm>
+                  <div class="box">
+                    <ion-icon name="construct"></ion-icon><br />
+                    Preventiva PC's
                   </div>
                 </ion-col>
                 <!--<ion-col size-sm>
@@ -35,61 +41,8 @@
           </center>
         </ion-card-content>
       </ion-card>
-
-      <ion-card>
-        <ion-card-content>
-          <div class="ion-text-center">Opções de checklist</div>
-          <center>
-            <ion-grid>
-              <ion-row>
-                <ion-col size="6" size-sm>
-                  <div class="box">
-                    <ion-icon name="construct"></ion-icon><br />
-                    Preventiva PC's
-                  </div>
-                </ion-col>
-                <!--<ion-col size="6" size-sm>
-                  <div class="box">
-                    <ion-icon name="construct"></ion-icon><br />
-                    Preventiva Serviores
-                  </div>
-                </ion-col>-->
-                <ion-col size="6" size-sm>
-                  <div class="box">
-                    <ion-icon name="desktop"></ion-icon><br />
-                    Notebooks de Empréstimo
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </center>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-card-content>
-          <div class="ion-text-center">Comandos auxiliares</div>
-          <center>
-            <ion-grid>
-              <ion-row>
-                <ion-col size-sm>
-                  <div class="box">
-                    <ion-icon name="refresh-circle"></ion-icon><br />
-                    Reiniciar um computador
-                  </div>
-                </ion-col>
-                <ion-col size-sm>
-                  <div class="box">
-                    <ion-icon name="lock-closed"></ion-icon><br />
-                    Revelar senha de usuário
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </center>
-        </ion-card-content>
-      </ion-card>
     </ion-content>
+
     <ion-footer>
       <ion-toolbar id="footer">
         <ion-title>Checklists</ion-title>

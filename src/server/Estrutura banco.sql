@@ -2,7 +2,7 @@ create table computadores
 (
     id serial,
     nr_patrimonio  int unique not null,
-    ip_computador  int unique not null,
+    ip_computador  varchar(20) unique not null,
     tp_equipamento varchar(10) not null,
     is_alugado     varchar(30) not null,
     nm_dominio     varchar(100) not null,

@@ -311,10 +311,14 @@ export default {
 
         Provider.provider("computador", JSON.stringify(dados))
           .then((res) => {
+            console.log(res.data.msg);
             if (res.data.sucesso) {
               loading.dismiss();
-              this.form = null;
+              //this.form = null;
               this.presentToast(res.data.msg);
+              setTimeout(function () {
+                location.reload();
+              }, 2000);
             } else {
               loading.dismiss();
             }
